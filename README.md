@@ -1,3 +1,3 @@
 # Deputadex
 
-### Uma "pokedex" de deputados brasileiros.
+### Uma _pokedex_ de deputados brasileiros.
