@@ -16,7 +16,7 @@ Com isso juntamos a ideia de uma estilização do frontend parecida com a famosa
 
 - Abra no seu navegador a página `localhost:3000`
 
-> Pronto seu projeto está rodando e ativo.
+> Pronto seu projeto está rodando.
 
 ---
 
