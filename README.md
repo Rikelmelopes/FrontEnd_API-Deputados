@@ -6,6 +6,14 @@ Neste projeto utilizamos a api pública de deputados fornecida gratuitamente pel
 
 Com isso juntamos a ideia de uma estilização do frontend parecida com a famosa pokedex conhecida pela franquia [Pokémon©](https://pt.wikipedia.org/wiki/Pok%C3%A9mon), e as nossas ablidades e conhecimentos adiquiridos durante as aulas para fazermos um site bem feito.
 
+## Passo a Passo
+
+- Clone o projeto na sua máquina com `git clone`
+
+- Na raiz do projeto coloque no terminal `npm install`
+
+- Após esperar instalar todas as dependencias dê `npm run dev`
+
 ---
 
 ### Alunos
