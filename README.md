@@ -12,7 +12,11 @@ Com isso juntamos a ideia de uma estilização do frontend parecida com a famosa
 
 - Na raiz do projeto coloque no terminal `npm install`
 
-- Após esperar instalar todas as dependencias dê `npm run dev`
+- Após instalar todas as dependencias dê `npm run dev`
+
+- Abra no seu navegador a página `localhost:3000`
+
+> Pronto seu projeto está rodando e ativo.
 
 ---
 
