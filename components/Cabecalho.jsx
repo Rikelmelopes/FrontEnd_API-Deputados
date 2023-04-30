@@ -17,8 +17,12 @@ const Cabecalho = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Navbar.Brand href="/">
-              <img src="/img/image.png" alt="logo" />
+              <img
+                src="https://media.discordapp.net/attachments/954503804676603998/1102345050098253844/image-removebg-preview.png?width=518&height=196"
+                style={{ maxWidth: "150px" }}
+              />
             </Navbar.Brand>
+
             <Nav className="me-auto ">
               <Nav.Link href="/deputados">Deputados</Nav.Link>
               <Nav.Link href="/partidos">Partidos</Nav.Link>
