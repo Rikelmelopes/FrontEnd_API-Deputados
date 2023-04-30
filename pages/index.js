@@ -1,3 +1,5 @@
+import Rodape from "../components/Rodape";
+
 export default function Home() {
   return (
     <div>
@@ -6,6 +8,7 @@ export default function Home() {
           <h1 className="col text-center justify-content-center">Deputadex</h1>
         </div>
       </main>
+      <Rodape />
     </div>
   );
 }
