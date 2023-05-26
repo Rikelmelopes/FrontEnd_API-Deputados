@@ -5,13 +5,13 @@ import { Card, Col, Row } from "react-bootstrap";
 
 const index = ({ deputado }) => {
   return (
-    <Pagina>
+    <Pagina titulo={deputado.nome}>
       <Row>
         <Col>
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src={deputado.urlFoto} />
             <Card.Body>
-              <Card.Title>{deputado.nome}</Card.Title>
+              <Card.Text>{deputado.siglaPartido}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
