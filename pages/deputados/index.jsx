@@ -2,19 +2,29 @@ import React from "react";
 import Pagina from "../../components/Pagina";
 import { Col, Row, Card } from "react-bootstrap";
 import apiDeputados from "../../services/apiDeputados";
+import Link from "next/link";
 
 const index = ({ deputados }) => {
   return (
-    <Pagina>
+    <Pagina titulo="Página Inicial">
       <Row>
         {deputados.map((item) => (
-          <Col>
-            <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={item.urlFoto} />
-              <Card.Body>
-                <Card.Title>{item.nome}</Card.Title>
-              </Card.Body>
-            </Card>
+          <Col key={item.id} className="my-3">
+            <Link
+              href={`/deputados/${item.id}`}
+              style={{
+                textDecoration: "none",
+                color: "black",
+                textAlign: "center",
+              }}
+            >
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={item.urlFoto} />
+                <Card.Body>
+                  <Card.Title>{item.nome}</Card.Title>
+                </Card.Body>
+              </Card>
+            </Link>
           </Col>
         ))}
       </Row>
