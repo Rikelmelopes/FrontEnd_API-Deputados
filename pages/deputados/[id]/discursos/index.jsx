@@ -60,14 +60,19 @@ const index = ({ deputado, discurso }) => {
             <thead>
               <tr>
                 <th>Tipo de Discurso</th>
-                <th>Palavras Chave</th>
-                <th>Sumario</th>
+                <th>Inicio - Fim</th>
+                <th>Transcrição</th>
               </tr>
             </thead>
             <tbody>
               {discurso.map((item) => (
                 <tr>
                   <td>{item.tipoDiscurso}</td>
+                  <td>
+                    {new Date(item.dataHoraInicio).toTimeString()} -{" "}
+                    {new Date(item.dataHoraFim).toTimeString()}
+                  </td>
+                  <td>{item.transcricao}</td>
                 </tr>
               ))}
             </tbody>
