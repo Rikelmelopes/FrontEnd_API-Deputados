@@ -56,7 +56,7 @@ const index = ({ deputado, discurso }) => {
             </Nav.Item>
           </Nav>
           <h3>Discursos</h3>
-          <Table striped bordered hover>
+          <Table striped bordered hover variant="dark">
             <thead>
               <tr>
                 <th>Tipo de Discurso</th>

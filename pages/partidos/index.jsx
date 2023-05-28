@@ -8,7 +8,7 @@ import Link from "next/link";
 const index = ({ partidos }) => {
   return (
     <Pagina titulo="Partidos">
-      <Table striped bordered hover className="my-3">
+      <Table variant="dark" striped bordered hover className="my-3">
         <thead>
           <tr>
             <th className="text-center">#</th>
