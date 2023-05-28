@@ -5,7 +5,7 @@ import { Card, Container } from "react-bootstrap";
 
 const Pagina = (props) => {
   return (
-    <div>
+    <div style={{ backgroundColor: "#1C1C1C" }}>
       <Cabecalho />
       <div
         className="py-3 text-white text-center mb-3"
