@@ -18,22 +18,29 @@ const Index = ({ deputados }) => {
 
   return (
     <Pagina titulo="Deputados">
-      <Card>
-        <Card.Body>
-          <Form className="d-flex" onSubmit={handleSearch}>
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-1"
-              aria-label="Search"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <Button variant="success" type="submit">
-              Busca
-            </Button>
-          </Form>
-        </Card.Body>
+      <Card border="success" style={{ width: "18rem" }}>
+        <Form className="d-flex" onSubmit={handleSearch}>
+          <Form.Control
+            type="search"
+            placeholder="Search"
+            className="me-1"
+            aria-label="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              outline: "none",
+            }}
+          />
+          <Button
+            variant="success"
+            type="submit"
+            style={{ backgroundColor: "green" }}
+          >
+            Busca
+          </Button>
+        </Form>
       </Card>
       <br></br>
       <Card>
@@ -49,7 +56,7 @@ const Index = ({ deputados }) => {
                     textAlign: "center",
                   }}
                 >
-                  <Card style={{ width: "18rem" }}>
+                  <Card border="success" style={{ width: "18rem" }}>
                     <Card.Img variant="top" src={item.urlFoto} />
                     <Card.Body>
                       <Card.Title>{item.nome}</Card.Title>
