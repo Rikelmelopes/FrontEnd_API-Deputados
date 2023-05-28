@@ -18,8 +18,8 @@ const Cabecalho = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Navbar.Brand href="/">
               <img
-                src="https://media.discordapp.net/attachments/954503804676603998/1102345050098253844/image-removebg-preview.png?width=518&height=196"
-                style={{ maxWidth: "150px" }}
+                src="https://cdn.discordapp.com/attachments/954503804676603998/1112479926805868625/DeputadexLogo.png"
+                style={{ maxWidth: "300px" }}
               />
             </Navbar.Brand>
 
