@@ -1,8 +1,37 @@
 import React from "react";
 import Pagina from "../../components/Pagina";
+import apiDeputados from "../../services/apiDeputados";
+import { Table } from "react-bootstrap";
+import { BsFillArrowUpRightSquareFill } from "react-icons/bs";
+import Link from "next/link";
 
 const index = ({ orgaos }) => {
-  return <Pagina>index</Pagina>;
+  return (
+    <Pagina>
+      <Table variant="dark" striped bordered hover className="my-3">
+        <thead>
+          <tr>
+            <th className="text-center">#</th>
+            <th>Nome</th>
+            <th>Sigla</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orgaos.map((item) => (
+            <tr key={item.id}>
+              <td className="text-center">
+                <Link href={`orgaos/${item.id}`}>
+                  <BsFillArrowUpRightSquareFill />
+                </Link>
+              </td>
+              <td>{item.nome}</td>
+              <td>{item.sigla}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Pagina>
+  );
 };
 
 export default index;
