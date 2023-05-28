@@ -31,7 +31,7 @@ const index = () => {
       )}
       {loading && (
         <img
-          src="https://icon-library.com/images/pokeball-icon-transparent/pokeball-icon-transparent-25.jpg"
+          src="https://cdn.discordapp.com/attachments/954503804676603998/1112484623402926150/Pokebola.png"
           alt="Loading"
           style={{ width: "50px", height: "50px", position: "absolute" }}
         />
