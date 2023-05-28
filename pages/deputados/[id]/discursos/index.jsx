@@ -1,7 +1,7 @@
 import React from "react";
 import Pagina from "../../../../components/Pagina";
 import apiDeputados from "../../../../services/apiDeputados";
-import { Card, Col, ListGroup, Nav, Row } from "react-bootstrap";
+import { Card, Col, ListGroup, Nav, Row, Table } from "react-bootstrap";
 
 const index = ({ deputado, discurso }) => {
   return (
@@ -56,11 +56,22 @@ const index = ({ deputado, discurso }) => {
             </Nav.Item>
           </Nav>
           <h3>Discursos</h3>
-          <ListGroup>
-            {discurso.map((item) => (
-              <ListGroup.Item>{item.transcricao}</ListGroup.Item>
-            ))}
-          </ListGroup>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Tipo de Discurso</th>
+                <th>Palavras Chave</th>
+                <th>Sumario</th>
+              </tr>
+            </thead>
+            <tbody>
+              {discurso.map((item) => (
+                <tr>
+                  <td>{item.tipoDiscurso}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
         </Col>
       </Row>
     </Pagina>
