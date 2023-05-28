@@ -13,7 +13,7 @@ export default function Document() {
       <title>Deputadex</title>
       <link
         rel="icon"
-        href="https://play-lh.googleusercontent.com/DXvZMPbNNrsHnV1BINVGY-oEdy6cWgH5meQGO9YFkLQl-IgM-GexFpQZeYyAzSjJRSI=w240-h480-rw"
+        href="https://media.discordapp.net/attachments/954503804676603998/1112484623402926150/Pokebola.png"
       />
       <body>
         <Main />
