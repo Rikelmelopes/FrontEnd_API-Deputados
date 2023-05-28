@@ -14,15 +14,14 @@ const Cabecalho = () => {
         style={{ backgroundColor: "#004A2F ", color: "white" }}
       >
         <Container>
+          <Navbar.Brand href="/">
+            <img
+              src="https://cdn.discordapp.com/attachments/954503804676603998/1112479926805868625/DeputadexLogo.png"
+              style={{ maxWidth: "300px" }}
+            />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Navbar.Brand href="/">
-              <img
-                src="https://cdn.discordapp.com/attachments/954503804676603998/1112479926805868625/DeputadexLogo.png"
-                style={{ maxWidth: "300px" }}
-              />
-            </Navbar.Brand>
-
             <Nav className="me-auto ">
               <Nav.Link href="/deputados">Deputados</Nav.Link>
               <Nav.Link href="/partidos">Partidos</Nav.Link>
