@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const index = ({ deputados }) => {
   return (
-    <Pagina titulo="Página Inicial">
+    <Pagina titulo="Deputados">
       <Row>
         {deputados.map((item) => (
           <Col key={item.id} className="my-3">
