@@ -21,7 +21,7 @@ const index = ({ orgaos }) => {
             <tr key={item.id}>
               <td className="text-center">
                 <Link href={`orgaos/${item.id}`}>
-                  <BsFillArrowUpRightSquareFill />
+                  <BsFillArrowUpRightSquareFill color="#17583B" />
                 </Link>
               </td>
               <td>{item.nome}</td>

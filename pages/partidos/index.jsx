@@ -11,7 +11,7 @@ const index = ({ partidos }) => {
       <Table variant="dark" striped bordered hover className="my-3">
         <thead>
           <tr>
-            <th className="text-center"></th>
+            <th></th>
             <th>Nome</th>
             <th>Sigla</th>
           </tr>
@@ -21,7 +21,7 @@ const index = ({ partidos }) => {
             <tr key={item.id}>
               <td className="text-center">
                 <Link href={`partidos/${item.id}`}>
-                  <BsFillArrowUpRightSquareFill />
+                  <BsFillArrowUpRightSquareFill color="#17583B" />
                 </Link>
               </td>
               <td>{item.nome}</td>
