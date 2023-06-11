@@ -5,7 +5,7 @@ import { Card, Col, ListGroup, Nav, Row, Table } from "react-bootstrap";
 
 const index = ({ deputado, discurso }) => {
   return (
-    <Pagina>
+    <Pagina titulo={deputado.ultimoStatus.nome}>
       <Row>
         <Col md={3}>
           <Card>

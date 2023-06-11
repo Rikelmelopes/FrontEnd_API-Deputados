@@ -7,7 +7,7 @@ import MeuCard from "../../../../components/MeuCard";
 
 const index = ({ orgao, orgaos }) => {
   return (
-    <Pagina>
+    <Pagina titulo={orgaos.nome}>
       <Row>
         <Col className="border p-3 rounded">
           <Nav
