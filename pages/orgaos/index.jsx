@@ -19,7 +19,7 @@ const index = ({ orgaos }) => {
         <tbody>
           {orgaos.map((item) => (
             <tr key={item.id}>
-              <td className="text-center">
+              <td className="text-center" style={{ width: 70 }}>
                 <Link href={`orgaos/${item.id}`}>
                   <BsFillArrowUpRightSquareFill color="#17583B" />
                 </Link>
