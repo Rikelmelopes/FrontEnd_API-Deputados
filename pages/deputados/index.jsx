@@ -50,12 +50,16 @@ const Index = ({ deputados }) => {
                     textAlign: "center",
                   }}
                 >
+                  {/* {item.nome == "Abilio Brunini" ? (
+                    <></>
+                  ) : ( */}
                   <MeuCard>
                     <Card.Img variant="top" src={item.urlFoto} />
                     <Card.Body>
                       <Card.Title>{item.nome}</Card.Title>
                     </Card.Body>
                   </MeuCard>
+                  {/* )} */}
                 </Link>
               </Col>
             ))}
