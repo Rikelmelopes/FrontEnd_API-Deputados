@@ -34,13 +34,6 @@ const Index = ({ deputados }) => {
               outline: "none",
             }}
           />
-          {/* <Button
-            variant="success"
-            type="submit"
-            style={{ backgroundColor: "#17583B" }}
-          >
-            Busca
-          </Button> */}
         </Form>
       </Card>
       <br></br>
