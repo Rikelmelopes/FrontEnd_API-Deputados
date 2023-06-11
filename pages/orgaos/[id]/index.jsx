@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const index = ({ orgao }) => {
   return (
-    <Pagina>
+    <Pagina titulo={orgao.nome}>
       <Row>
         <Col className="border p-3 rounded">
           <Nav
