@@ -9,7 +9,7 @@ const index = ({ orgao, orgaos }) => {
   return (
     <Pagina>
       <Row>
-        <Col className="border p-3">
+        <Col className="border p-3 rounded">
           <Nav
             fill
             variant="pills"
