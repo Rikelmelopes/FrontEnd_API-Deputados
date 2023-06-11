@@ -8,7 +8,7 @@ const index = ({ orgao }) => {
   return (
     <Pagina>
       <Row>
-        <Col className="border p-3">
+        <Col className="border p-3 rounded">
           <Nav
             fill
             variant="pills"
@@ -24,21 +24,46 @@ const index = ({ orgao }) => {
           </Nav>
           <h3>Informações</h3>
           <ListGroup>
-            <ListGroup.Item action variant="dark">
-              Nome: <strong>{orgao.nome}</strong>
+            <ListGroup.Item>
+              <div className="ms-2 me-auto">
+                <div className="fw-bold" style={{ fontSize: 18 }}>
+                  Nome
+                </div>
+                {orgao.nome}
+              </div>
             </ListGroup.Item>
-            <ListGroup.Item action variant="dark">
-              Apelido: <strong>{orgao.apelido}</strong>
-            </ListGroup.Item>{" "}
-            <ListGroup.Item action variant="dark">
-              Sala: <strong>{orgao.sala}</strong>
-            </ListGroup.Item>{" "}
-            <ListGroup.Item action variant="dark">
-              Sigla: <strong>{orgao.sigla}</strong>
-            </ListGroup.Item>{" "}
-            <ListGroup.Item action variant="dark">
-              Tipo: <strong>{orgao.tipoOrgao}</strong>
-            </ListGroup.Item>{" "}
+            <ListGroup.Item>
+              <div className="ms-2 me-auto">
+                <div className="fw-bold" style={{ fontSize: 18 }}>
+                  Apelido
+                </div>
+                {orgao.apelido}
+              </div>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="ms-2 me-auto">
+                <div className="fw-bold" style={{ fontSize: 18 }}>
+                  Sala
+                </div>
+                {orgao.sala}
+              </div>{" "}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="ms-2 me-auto">
+                <div className="fw-bold" style={{ fontSize: 18 }}>
+                  Sigla
+                </div>
+                {orgao.sigla}
+              </div>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <div className="ms-2 me-auto">
+                <div className="fw-bold" style={{ fontSize: 18 }}>
+                  Tipo
+                </div>
+                {orgao.tipoOrgao}
+              </div>
+            </ListGroup.Item>
           </ListGroup>
         </Col>
       </Row>
