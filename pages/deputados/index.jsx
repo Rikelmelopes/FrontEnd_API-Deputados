@@ -19,7 +19,7 @@ const Index = ({ deputados }) => {
 
   return (
     <Pagina titulo="Deputados">
-      <Card border="success" style={{ width: "18rem" }}>
+      <Card border="success" style={{ width: "100%" }}>
         <Form className="d-flex" onSubmit={handleSearch}>
           <Form.Control
             type="search"
@@ -34,13 +34,13 @@ const Index = ({ deputados }) => {
               outline: "none",
             }}
           />
-          <Button
+          {/* <Button
             variant="success"
             type="submit"
-            style={{ backgroundColor: "green" }}
+            style={{ backgroundColor: "#17583B" }}
           >
             Busca
-          </Button>
+          </Button> */}
         </Form>
       </Card>
       <br></br>
