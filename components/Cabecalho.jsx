@@ -25,7 +25,7 @@ const Cabecalho = () => {
             <Nav className="me-auto ">
               <Nav.Link href="/deputados">Deputados</Nav.Link>
               <Nav.Link href="/partidos">Partidos</Nav.Link>
-              <Nav.Link href="/orgaos">Orgãos</Nav.Link>
+              <Nav.Link href="/orgaos">Órgãos</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

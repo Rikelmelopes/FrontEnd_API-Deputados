@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const index = ({ orgaos }) => {
   return (
-    <Pagina>
+    <Pagina titulo={"Órgãos"}>
       <Table variant="dark" striped bordered hover className="my-3">
         <thead>
           <tr>
