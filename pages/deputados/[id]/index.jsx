@@ -39,7 +39,7 @@ const index = ({ deputado }) => {
             </Card.Body>
           </Card>
         </Col>
-        <Col className="border p-3">
+        <Col className="border p-3 rounded">
           <Nav
             fill
             variant="pills"
