@@ -3,6 +3,7 @@ import Pagina from "../../components/Pagina";
 import { Col, Row, Card, Form, Button } from "react-bootstrap";
 import apiDeputados from "../../services/apiDeputados";
 import Link from "next/link";
+import MeuCard from "../../components/MeuCard";
 
 const Index = ({ deputados }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -56,25 +57,12 @@ const Index = ({ deputados }) => {
                     textAlign: "center",
                   }}
                 >
-                  <Card
-                    border="success"
-                    style={{
-                      width: "18rem",
-                      boxShadow: "0 17px 10px rgba(0, 0, 0, 0.3)",
-                      transition: "transform 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "scale(1.05)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "scale(1)";
-                    }}
-                  >
+                  <MeuCard>
                     <Card.Img variant="top" src={item.urlFoto} />
                     <Card.Body>
                       <Card.Title>{item.nome}</Card.Title>
                     </Card.Body>
-                  </Card>
+                  </MeuCard>
                 </Link>
               </Col>
             ))}
