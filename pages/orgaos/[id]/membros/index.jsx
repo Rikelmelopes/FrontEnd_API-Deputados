@@ -3,6 +3,7 @@ import Pagina from "../../../../components/Pagina";
 import { Card, Col, ListGroup, Nav, Row } from "react-bootstrap";
 import apiDeputados from "../../../../services/apiDeputados";
 import Link from "next/link";
+import MeuCard from "../../../../components/MeuCard";
 
 const index = ({ orgao, orgaos }) => {
   return (
@@ -36,12 +37,12 @@ const index = ({ orgao, orgaos }) => {
                         textAlign: "center",
                       }}
                     >
-                      <Card border="success" style={{ width: "18rem" }}>
+                      <MeuCard>
                         <Card.Img variant="top" src={item.urlFoto} />
                         <Card.Body>
                           <Card.Title>{item.nome}</Card.Title>
                         </Card.Body>
-                      </Card>
+                      </MeuCard>
                     </Link>
                   </Col>
                 ))}

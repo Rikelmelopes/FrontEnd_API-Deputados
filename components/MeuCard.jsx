@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 
-const MeuCard = () => {
+const MeuCard = (props) => {
   return (
     <Card
       border="success"
