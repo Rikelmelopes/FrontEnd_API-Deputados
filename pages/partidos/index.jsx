@@ -36,7 +36,7 @@ const index = ({ partidos }) => {
 
 export default index;
 export async function getServerSideProps(context) {
-  const resultado = await apiDeputados.get(`/partidos?itens=100`);
+  const resultado = await apiDeputados.get(`/partidos?itens=31`);
   const partidos = await resultado.data.dados;
   return {
     props: { partidos }, // will be passed to the page component as props
