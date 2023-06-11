@@ -11,7 +11,7 @@ const index = ({ orgaos }) => {
       <Table variant="dark" striped bordered hover className="my-3">
         <thead>
           <tr>
-            <th>Detalhes</th>
+            <th></th>
             <th>Nome</th>
             <th>Sigla</th>
           </tr>

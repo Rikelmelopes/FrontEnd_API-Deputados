@@ -11,7 +11,7 @@ const index = ({ partidos }) => {
       <Table variant="dark" striped bordered hover className="my-3">
         <thead>
           <tr>
-            <th className="text-center">#</th>
+            <th className="text-center"></th>
             <th>Nome</th>
             <th>Sigla</th>
           </tr>
