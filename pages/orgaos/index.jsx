@@ -25,7 +25,7 @@ const index = ({ orgaos }) => {
                 </Link>
               </td>
               <td>{item.nome}</td>
-              <td>{item.sigla}</td>
+              <td style={{ width: 150 }}>{item.sigla}</td>
             </tr>
           ))}
         </tbody>
