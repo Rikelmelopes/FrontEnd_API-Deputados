@@ -33,7 +33,7 @@ const index = ({ deputado, gastos }) => {
     <Pagina titulo={deputado.ultimoStatus.nome}>
       <Row className="my-3">
         <Col key={deputado.id} md={3}>
-          <Card>
+          <Card border="success">
             <Card.Img variant="top" src={deputado.ultimoStatus.urlFoto} />
             <Card.Body>
               <strong>Informações</strong>
@@ -75,8 +75,8 @@ const index = ({ deputado, gastos }) => {
               <Nav.Link href={`/deputados/${deputado.id}`}>Despesas</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href={`/deputados/${deputado.id}/discursos`}>
-                Discursos
+              <Nav.Link href={`/deputados/${deputado.id}/contatos`}>
+                Contatos
               </Nav.Link>
             </Nav.Item>
           </Nav>

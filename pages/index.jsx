@@ -10,7 +10,7 @@ const index = () => {
     setTimeout(() => {
       setLoading(false);
       router.push("/deputados");
-    }, 7000);
+    }, 5000);
   }, []);
   return (
     <div
@@ -27,7 +27,7 @@ const index = () => {
       {loading ? (
         <PuffLoader color={"#17583B"} loading={loading} size={90} />
       ) : (
-        <>oi</>
+        <></>
       )}
       {loading && (
         <img
