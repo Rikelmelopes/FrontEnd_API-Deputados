@@ -115,10 +115,12 @@ const index = ({ deputado, gastos }) => {
                                 {item.ano}
                               </strong>
                               <br /> {getMonthName(item.mes)}
+                              <br /> R$
+                              {item.valorLiquido.toFixed(2).replace(".", ",")}
                             </Col>
                           </Row>
                         </Col>
-                        <Col>Tipo: {item.tipoDespesa}</Col>
+                        <Col>{item.tipoDespesa}</Col>
                       </div>
                     </MeuCard>
                   </Col>
