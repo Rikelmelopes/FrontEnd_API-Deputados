@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Pagina from "../../components/Pagina";
 import { Col, Row, Card, Form, Button } from "react-bootstrap";
 import apiDeputados from "../../services/apiDeputados";
@@ -6,9 +6,20 @@ import Link from "next/link";
 import MeuCard from "../../components/MeuCard";
 
 const Index = ({ deputados }) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const filteredDeputados = deputados.filter((item) =>
-    item.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para armazenar o termo de pesquisa
+  const [currentPage, setCurrentPage] = useState(1); // Estado para armazenar o número da página atual
+  const [itemsPerPage, setItemsPerPage] = useState(19); // Estado para armazenar o número de itens por página
+
+  const filteredDeputados = deputados.filter(
+    (item) => item.nome.toLowerCase().includes(searchTerm.toLowerCase()) // Array filtrado de deputados com base no termo de pesquisa
+  );
+
+  const indexOfLastItem = currentPage * itemsPerPage; // Índice do último item na página atual
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage; // Índice do primeiro item na página atual
+  const currentItems = filteredDeputados.slice(
+    // Array de itens para a página atual
+    indexOfFirstItem,
+    indexOfLastItem
   );
 
   const handleSearch = (event) => {
@@ -16,6 +27,33 @@ const Index = ({ deputados }) => {
     // Realize a ação de pesquisa aqui, se necessário
     console.log("Termo de pesquisa:", searchTerm);
   };
+
+  function paginacao() {
+    const totalPages = Math.ceil(filteredDeputados.length / itemsPerPage);
+    const pageNumbers = [];
+
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(i);
+    }
+
+    return (
+      <nav style={{ display: "flex", justifyContent: "center" }}>
+        <ul className="pagination">
+          {pageNumbers.map((number) => (
+            <li key={number} className="page-item">
+              <a
+                href="#"
+                className="page-link"
+                onClick={() => setCurrentPage(number)}
+              >
+                {number}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    );
+  }
 
   return (
     <Pagina titulo="Deputados">
@@ -36,11 +74,12 @@ const Index = ({ deputados }) => {
           />
         </Form>
       </Card>
-      <br></br>
+      <br />
+      <div className="paginacao">{paginacao()}</div>
       <Card>
         <Card.Body>
           <Row>
-            {filteredDeputados.map((item) => (
+            {currentItems.map((item) => (
               <Col key={item.id} className="my-3">
                 <Link
                   href={`/deputados/${item.id}`}
