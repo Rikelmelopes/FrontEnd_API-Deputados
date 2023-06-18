@@ -8,7 +8,7 @@ const index = ({ deputado }) => {
     <Pagina titulo={deputado.ultimoStatus.nome}>
       <Row className="my-3">
         <Col key={deputado.id} md={3}>
-          <Card>
+          <Card border="success">
             <Card.Img variant="top" src={deputado.ultimoStatus.urlFoto} />
             <Card.Body>
               <strong>Informações</strong>
