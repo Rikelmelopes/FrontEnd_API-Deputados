@@ -94,7 +94,7 @@ const index = ({ deputado }) => {
             </Nav.Item>
           </Nav>
           <h3>Contato:</h3>
-          <form className="form" onSubmit={sendEmail}>
+          <form className="form mb-3" onSubmit={sendEmail}>
             <Row className="mb-3">
               <div className=" col">
                 <label for="name" className="form-label text-white">
@@ -132,6 +132,11 @@ const index = ({ deputado }) => {
             </div>
             <input className="btn btn-success" type="submit" value="Enviar" />
           </form>
+          <Row>
+            <a href="https://wa.me//556184212998?text=Tenho%20interesse%20em%20comprar%20seu%20carro">
+              <img src="https://media.discordapp.net/attachments/989658427410223114/1120081026950123731/WhatsAppButtonGreenLarge.png" />
+            </a>
+          </Row>
         </Col>
       </Row>
     </Pagina>
