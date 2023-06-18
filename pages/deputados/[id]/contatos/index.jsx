@@ -93,7 +93,7 @@ const index = ({ deputado }) => {
               </Nav.Link>
             </Nav.Item>
           </Nav>
-          <h3>Contato:</h3>
+          <h3 className="text-white mb-4">Mande seu email:</h3>
           <form className="form mb-3" onSubmit={sendEmail}>
             <Row className="mb-3">
               <div className=" col">
@@ -132,7 +132,7 @@ const index = ({ deputado }) => {
             </div>
             <input className="btn btn-success" type="submit" value="Enviar" />
           </form>
-          <Row>
+          <Row style={{ marginTop: 180 }}>
             <a href="https://wa.me//556184212998?text=Tenho%20interesse%20em%20comprar%20seu%20carro">
               <img src="https://media.discordapp.net/attachments/989658427410223114/1120081026950123731/WhatsAppButtonGreenLarge.png" />
             </a>
