@@ -36,8 +36,14 @@ const Index = ({ deputados }) => {
 
     return (
       <Pagination>
-        <Pagination.First onClick={() => setCurrentPage(1)} />
-        <Pagination.Prev onClick={() => setCurrentPage(currentPage - 1)} />
+        {currentPage != 1 ? (
+          <>
+            <Pagination.First onClick={() => setCurrentPage(1)} />
+            <Pagination.Prev onClick={() => setCurrentPage(currentPage - 1)} />
+          </>
+        ) : (
+          ""
+        )}
 
         {pageNumbers.map((number) => (
           <Pagination.Item
@@ -49,15 +55,21 @@ const Index = ({ deputados }) => {
           </Pagination.Item>
         ))}
 
-        <Pagination.Next onClick={() => setCurrentPage(currentPage + 1)} />
-        <Pagination.Last onClick={() => setCurrentPage(totalPages)} />
+        {currentPage != totalPages ? (
+          <>
+            <Pagination.Next onClick={() => setCurrentPage(currentPage + 1)} />
+            <Pagination.Last onClick={() => setCurrentPage(totalPages)} />
+          </>
+        ) : (
+          ""
+        )}
       </Pagination>
     );
   }
 
   return (
     <Pagina titulo="Deputados">
-      <Card border="success" style={{ width: "100%" }}>
+      <Card border="success" style={{ width: "100%", marginBottom: 20 }}>
         <Form className="d-flex" onSubmit={handleSearch}>
           <Form.Control
             type="search"
@@ -74,8 +86,6 @@ const Index = ({ deputados }) => {
           />
         </Form>
       </Card>
-      <br />
-      <div className="paginacao">{paginacao()}</div>
       <Card>
         <Card.Body>
           <Row>
