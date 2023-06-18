@@ -1,21 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Pagina from "../../components/Pagina";
-import { Col, Row, Card, Form, Button } from "react-bootstrap";
+import { Col, Row, Card, Form, Button, Pagination } from "react-bootstrap";
 import apiDeputados from "../../services/apiDeputados";
 import Link from "next/link";
 import MeuCard from "../../components/MeuCard";
 
 const Index = ({ deputados }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(18);
+
   const filteredDeputados = deputados.filter((item) =>
     item.nome.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredDeputados.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
   const handleSearch = (event) => {
     event.preventDefault();
-    // Realize a ação de pesquisa aqui, se necessário
     console.log("Termo de pesquisa:", searchTerm);
   };
+
+  function paginacao() {
+    const totalPages = Math.ceil(filteredDeputados.length / itemsPerPage);
+    const pageNumbers = [];
+
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(i);
+    }
+
+    return (
+      <Pagination>
+        <Pagination.First onClick={() => setCurrentPage(1)} />
+        <Pagination.Prev onClick={() => setCurrentPage(currentPage - 1)} />
+
+        {pageNumbers.map((number) => (
+          <Pagination.Item
+            key={number}
+            active={number === currentPage}
+            onClick={() => setCurrentPage(number)}
+          >
+            {number}
+          </Pagination.Item>
+        ))}
+
+        <Pagination.Next onClick={() => setCurrentPage(currentPage + 1)} />
+        <Pagination.Last onClick={() => setCurrentPage(totalPages)} />
+      </Pagination>
+    );
+  }
 
   return (
     <Pagina titulo="Deputados">
@@ -23,9 +61,9 @@ const Index = ({ deputados }) => {
         <Form className="d-flex" onSubmit={handleSearch}>
           <Form.Control
             type="search"
-            placeholder="Search"
+            placeholder="Pesquisar"
             className="me-1"
-            aria-label="Search"
+            aria-label="Pesquisar"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
@@ -36,12 +74,13 @@ const Index = ({ deputados }) => {
           />
         </Form>
       </Card>
-      <br></br>
+      <br />
+      <div className="paginacao">{paginacao()}</div>
       <Card>
         <Card.Body>
           <Row>
-            {filteredDeputados.map((item) => (
-              <Col key={item.id} className="my-3">
+            {currentItems.map((item) => (
+              <Col key={item.id} className="my-3" md={3}>
                 <Link
                   href={`/deputados/${item.id}`}
                   style={{
@@ -66,6 +105,8 @@ const Index = ({ deputados }) => {
           </Row>
         </Card.Body>
       </Card>
+      <br />
+      <div className="paginacao">{paginacao()}</div>
     </Pagina>
   );
 };
@@ -76,6 +117,6 @@ export async function getServerSideProps(context) {
   const resultado = await apiDeputados.get(`/deputados`);
   const deputados = await resultado.data.dados;
   return {
-    props: { deputados }, // será passado para o componente da página como props
+    props: { deputados },
   };
 }
