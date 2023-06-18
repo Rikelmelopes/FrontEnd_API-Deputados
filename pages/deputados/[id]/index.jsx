@@ -50,8 +50,8 @@ const index = ({ deputado }) => {
               <Nav.Link href={`/deputados/${deputado.id}`}>Despesas</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href={`/deputados/${deputado.id}/discursos`}>
-                Discursos
+              <Nav.Link href={`/deputados/${deputado.id}/contatos`}>
+                Contatos
               </Nav.Link>
             </Nav.Item>
           </Nav>
