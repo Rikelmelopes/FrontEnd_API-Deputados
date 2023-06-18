@@ -1,30 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Pagina from "../../components/Pagina";
-import { Col, Row, Card, Form, Button } from "react-bootstrap";
+import { Col, Row, Card, Form, Button, Pagination } from "react-bootstrap";
 import apiDeputados from "../../services/apiDeputados";
 import Link from "next/link";
 import MeuCard from "../../components/MeuCard";
 
 const Index = ({ deputados }) => {
-  const [searchTerm, setSearchTerm] = useState(""); // Estado para armazenar o termo de pesquisa
-  const [currentPage, setCurrentPage] = useState(1); // Estado para armazenar o número da página atual
-  const [itemsPerPage, setItemsPerPage] = useState(19); // Estado para armazenar o número de itens por página
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(18);
 
-  const filteredDeputados = deputados.filter(
-    (item) => item.nome.toLowerCase().includes(searchTerm.toLowerCase()) // Array filtrado de deputados com base no termo de pesquisa
+  const filteredDeputados = deputados.filter((item) =>
+    item.nome.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const indexOfLastItem = currentPage * itemsPerPage; // Índice do último item na página atual
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage; // Índice do primeiro item na página atual
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredDeputados.slice(
-    // Array de itens para a página atual
     indexOfFirstItem,
     indexOfLastItem
   );
 
   const handleSearch = (event) => {
     event.preventDefault();
-    // Realize a ação de pesquisa aqui, se necessário
     console.log("Termo de pesquisa:", searchTerm);
   };
 
@@ -37,23 +35,23 @@ const Index = ({ deputados }) => {
     }
 
     return (
-      <nav style={{ display: "flex", justifyContent: "center" }}>
-        <ul className="pagination">
-          {pageNumbers.map((number) => (
-            <li key={number} className="page-item">
-              <a
-                href="#"
-                className={`page-link ${
-                  currentPage === number ? "active" : ""
-                }`}
-                onClick={() => setCurrentPage(number)}
-              >
-                {number}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <Pagination>
+        <Pagination.First onClick={() => setCurrentPage(1)} />
+        <Pagination.Prev onClick={() => setCurrentPage(currentPage - 1)} />
+
+        {pageNumbers.map((number) => (
+          <Pagination.Item
+            key={number}
+            active={number === currentPage}
+            onClick={() => setCurrentPage(number)}
+          >
+            {number}
+          </Pagination.Item>
+        ))}
+
+        <Pagination.Next onClick={() => setCurrentPage(currentPage + 1)} />
+        <Pagination.Last onClick={() => setCurrentPage(totalPages)} />
+      </Pagination>
     );
   }
 
@@ -115,6 +113,6 @@ export async function getServerSideProps(context) {
   const resultado = await apiDeputados.get(`/deputados`);
   const deputados = await resultado.data.dados;
   return {
-    props: { deputados }, // Será passado para o componente da página como props
+    props: { deputados },
   };
 }
