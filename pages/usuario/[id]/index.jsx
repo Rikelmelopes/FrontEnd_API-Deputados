@@ -7,16 +7,14 @@ import { Button, Card, Col, Modal, Row } from "react-bootstrap";
 
 const index = () => {
   const { push, query } = useRouter();
-  const [cliente, setCliente] = useState([]);
+  const [usuario, setUsuario] = useState([]);
   const [show, setShow] = useState(false);
-  const [loading, setLoading] = useState(true);
   const handleClose = () => setShow(false);
 
   useEffect(() => {
     if (query.id) {
       axios.get(`/api/usuarios/${query.id}`).then((res) => {
-        setCliente(res.data);
-        setLoading(false);
+        setUsuario(res.data);
       });
     }
   }, [query.id]);
@@ -26,13 +24,13 @@ const index = () => {
   }
 
   return (
-    <Pagina titulo={cliente.nome}>
+    <Pagina titulo={usuario.nome}>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Deseja Exlcuir {cliente.nome}?</Modal.Title>
+          <Modal.Title>Deseja Exlcuir {usuario.nome}?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Tenha certeza disso, após essa ação o <strong>Cliente</strong> será
+          Tenha certeza disso, após essa ação o <strong>Usuario</strong> será
           exluido para sempre!
         </Modal.Body>
         <Modal.Footer>
@@ -42,8 +40,8 @@ const index = () => {
           <Button
             variant="danger"
             onClick={() => {
-              axios.delete(`/api/usuarios/${cliente.id}`);
-              push("/clientes");
+              axios.delete(`/api/usuarios/${usuario.id}`);
+              push("/usuarios");
             }}
           >
             Excluir
@@ -53,69 +51,69 @@ const index = () => {
       <Row>
         <Col>
           <Card>
-            <Card.Img src={cliente.foto} />
+            <Card.Img src={usuario.foto} />
           </Card>
         </Col>
-        <Col>
+        <Col className="text-white" style={{ border: "1px solid white" }}>
           <h3>Informações:</h3>
 
           <Row>
             <Col>
               <p>
-                <strong>Animal:</strong> {cliente.animal}
+                <strong>Animal:</strong> {usuario.animal}
               </p>
             </Col>
             <Col>
               <p>
-                <strong>CPF:</strong> {cliente.cpf}
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <p>
-                <strong>CEP:</strong> {cliente.cep}
-              </p>
-            </Col>
-            <Col>
-              <p>
-                <strong>Email:</strong> {cliente.email}
+                <strong>CPF:</strong> {usuario.cpf}
               </p>
             </Col>
           </Row>
           <Row>
             <Col>
               <p>
-                <strong>Telefone:</strong> {cliente.telefone}
+                <strong>CEP:</strong> {usuario.cep}
               </p>
             </Col>
             <Col>
               <p>
-                <strong>Logradouro:</strong> {cliente.logradouro}
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <p>
-                <strong>Bairro:</strong> {cliente.bairro}
-              </p>
-            </Col>
-            <Col>
-              <p>
-                <strong>Número:</strong> {cliente.numero}
+                <strong>Email:</strong> {usuario.email}
               </p>
             </Col>
           </Row>
           <Row>
             <Col>
               <p>
-                <strong>Cidade:</strong> {cliente.cidade}
+                <strong>Telefone:</strong> {usuario.telefone}
               </p>
             </Col>
             <Col>
               <p>
-                <strong>UF:</strong> {cliente.uf}
+                <strong>Logradouro:</strong> {usuario.logradouro}
+              </p>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <p>
+                <strong>Bairro:</strong> {usuario.bairro}
+              </p>
+            </Col>
+            <Col>
+              <p>
+                <strong>Número:</strong> {usuario.numero}
+              </p>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <p>
+                <strong>Cidade:</strong> {usuario.cidade}
+              </p>
+            </Col>
+            <Col>
+              <p>
+                <strong>UF:</strong> {usuario.uf}
               </p>
             </Col>
           </Row>
@@ -123,7 +121,7 @@ const index = () => {
             <Link
               className="btn"
               style={{ backgroundColor: "#0D8CFF" }}
-              href={`${cliente.id}/form`}
+              href={`${usuario.id}/form`}
             >
               Editar
             </Link>

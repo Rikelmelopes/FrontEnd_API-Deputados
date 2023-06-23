@@ -17,7 +17,6 @@ const schema = yup
       .max(50, "Máximo de 50 caracteres")
       .matches(/^[aA-zZ\s]+$/, "Somente Letras"),
     cpf: yup.string().required("CPF Obrigatório").min(14, "Preencha o CPF"),
-    animal: yup.string().required().notOneOf(["..."], "Animal é Obrigatório"),
     email: yup
       .string()
       .email("Use um email válido")
@@ -29,7 +28,7 @@ const schema = yup
     cep: yup
       .string()
       .required("CEP Obrigatório")
-      .min(9, "Maximo de 9 caracteres"),
+      .min(8, "Mínimo de 8 caracteres"),
     logradouro: yup
       .string()
       .required("Logradouro Obrigatório")
