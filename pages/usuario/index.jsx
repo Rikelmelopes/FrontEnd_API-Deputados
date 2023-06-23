@@ -25,7 +25,7 @@ const index = () => {
   }
 
   return (
-    <Pagina titulo="Users">
+    <Pagina titulo="Usuários">
       <Link href={"/usuario/form"} className="btn btn-primary mb-2">
         Novo
         <BsPlusCircle className="ms-1" />

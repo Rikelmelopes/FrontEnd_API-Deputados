@@ -103,7 +103,7 @@ const form = () => {
     setValue(name, mask(value, mascara));
   }
   return (
-    <Pagina titulo="Novo Usuário">
+    <Pagina titulo="Editar usuário Usuário">
       <Form className="text-white">
         <Row className="mb-3">
           <Form.Group as={Col} controlId="nome">
