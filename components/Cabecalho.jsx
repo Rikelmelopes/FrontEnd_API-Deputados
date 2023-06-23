@@ -26,6 +26,7 @@ const Cabecalho = () => {
               <Nav.Link href="/deputados">Deputados</Nav.Link>
               <Nav.Link href="/partidos">Partidos</Nav.Link>
               <Nav.Link href="/orgaos">Órgãos</Nav.Link>
+              <Nav.Link href="/gameDeputadex">jogo</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
