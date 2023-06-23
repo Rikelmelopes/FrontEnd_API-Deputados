@@ -15,7 +15,7 @@ const index = () => {
 
   function getAll() {
     axios
-      .get("/api/users")
+      .get("/api/usuarios")
       .then((res) => {
         setUsers(res.data);
       })

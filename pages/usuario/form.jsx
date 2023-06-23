@@ -81,7 +81,7 @@ const form = () => {
   };
 
   function salvar(dados) {
-    axios.post("/api/users", dados);
+    axios.post("/api/usuarios", dados);
     push("/usuario");
   }
 
@@ -143,7 +143,7 @@ const form = () => {
             <Form.Control
               type="tel"
               placeholder="(01) 23456-78909"
-              mask="(99) 99999-9999"
+              mask={`(${ddd}) 99999-9999`}
               {...register("telefone")}
               onChange={handleChange}
             />
@@ -251,7 +251,7 @@ const form = () => {
             <BsCheck2 className="me-1" />
             Salvar
           </Button>
-          <Link href={"/usuarios"} className="ms-2 btn btn-danger">
+          <Link href={"/usuario"} className="ms-2 btn btn-danger">
             <BsArrowLeftCircleFill className="me-1" />
             Voltar
           </Link>
