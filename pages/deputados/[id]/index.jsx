@@ -150,7 +150,7 @@ const index = ({ deputado, gastos }) => {
       </Row>
       <Row className="my-5">
         <h2 className="text-white text-center">Fórum</h2>
-        <Button className="btn btn-primary" href="/forum/novo">
+        <Button className="btn btn-primary" href={`/forum/${deputado.id}`}>
           Novo
         </Button>
         <Table striped bordered hover variant="dark">

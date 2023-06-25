@@ -2,7 +2,6 @@
 
 import { db } from "../../../services/firebase";
 import { child, get, ref, remove, set, update } from "firebase/database";
-import { v4 } from "uuid";
 
 export default function handler(req, res) {
   const id = req.query.id;
@@ -12,7 +11,7 @@ export default function handler(req, res) {
       res.status(200).json(snapshot.val());
     });
   } else if (req.method == "POST") {
-    const id = v4();
+    const id = req.query.id;
 
     const dados = req.body;
 
