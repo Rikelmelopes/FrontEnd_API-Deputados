@@ -47,6 +47,45 @@ const index = ({ deputado, gastos }) => {
       });
   }
 
+  const dataAtual = new Date();
+  const anoAtual = dataAtual.getFullYear();
+
+  function calculo(data) {
+    let valorAnoAtual = 0;
+    let valorAnoPassado = 0;
+
+    gastos.map((item) => {
+      if (item.ano == data) {
+        valorAnoAtual += item.valorLiquido;
+      }
+      if (item.ano == data - 1) {
+        valorAnoPassado += item.valorLiquido;
+      }
+    });
+    return (
+      <Row>
+        <Col>
+          <DonutChart
+            data={{
+              labels: [`Ano ${anoAtual}`, `Ano ${anoAtual - 1}`],
+              datasets: [
+                {
+                  data: [
+                    // 1, 2, 3,
+                    valorAnoAtual,
+                    valorAnoPassado,
+                  ],
+                  backgroundColor: ["#FF6384", "#36A2EB"],
+                  hoverBackgroundColor: ["#FF6384", "#36A2EB"],
+                },
+              ],
+            }}
+          />
+        </Col>
+      </Row>
+    );
+  }
+
   return (
     <Pagina titulo={deputado.ultimoStatus.nome}>
       <Row className="my-3">
@@ -100,15 +139,15 @@ const index = ({ deputado, gastos }) => {
           </Nav>
           <Card>
             <Card.Body>
-              <Row>
+              {/* <Row>
                 {gastos.map((item) => (
                   <Col key={item.id} className="my-3">
                     <MeuCard>
                       <div style={{ padding: 10 }}>
                         <Col style={{ marginBottom: 10 }}>
                           <Row>
-                            <Col>
-                              <DonutChart
+                <Col>
+                  <DonutChart
                                 data={{
                                   labels: ["Documento", "Glosa"],
                                   datasets: [
@@ -126,24 +165,23 @@ const index = ({ deputado, gastos }) => {
                                     },
                                   ],
                                 }}
-                              />
-                            </Col>
-                            <Col>
-                              <strong style={{ fontSize: 30 }}>
-                                {item.ano}
-                              </strong>
-                              <br /> {getMonthName(item.mes)}
-                              <br /> R$
-                              {item.valorLiquido.toFixed(2).replace(".", ",")}
-                            </Col>
-                          </Row>
+                              /> */}
+              {calculo(anoAtual)}
+              {/* </Col>
+                <Col>
+                  <strong style={{ fontSize: 30 }}>{item.ano}</strong>
+                  <br /> {getMonthName(item.mes)}
+                  <br /> R$
+                  {item.valorLiquido.toFixed(2).replace(".", ",")}
+                </Col>
+                </Row>
                         </Col>
                         <Col>{item.tipoDespesa}</Col>
                       </div>
                     </MeuCard>
                   </Col>
                 ))}
-              </Row>
+              </Row> */}
             </Card.Body>
           </Card>
         </Col>
