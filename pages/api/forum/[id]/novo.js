@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { db } from "../../../services/firebase";
+import { db } from "../../../../services/firebase";
 import { child, get, ref, set } from "firebase/database";
 import { v4 } from "uuid";
 

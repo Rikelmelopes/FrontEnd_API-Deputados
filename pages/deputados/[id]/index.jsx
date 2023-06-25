@@ -38,7 +38,7 @@ const index = ({ deputado, gastos }) => {
 
   function getAll() {
     axios
-      .get(`/api/forum/`)
+      .get(`/api/forum/${deputado.id}`)
       .then((res) => {
         setForum(res.data);
       })

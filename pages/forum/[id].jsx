@@ -38,10 +38,7 @@ const novo = ({ deputado }) => {
   }
 
   return (
-    <Pagina>
-      <Row>
-        <Col>{}</Col>
-      </Row>
+    <Pagina titulo={deputado.ultimoStatus.nome}>
       <Form className="text-white">
         <Form.Group controlId="user" className="mb-3">
           <Form.Label>Usuário</Form.Label>
@@ -68,7 +65,10 @@ const novo = ({ deputado }) => {
             <BsCheck2 className="me-1" />
             Salvar
           </Button>
-          <Link href={"/deputados"} className="ms-2 btn btn-danger">
+          <Link
+            href={`/deputados${deputado.id}`}
+            className="ms-2 btn btn-danger"
+          >
             <BsArrowLeftCircleFill className="me-1" />
             Voltar
           </Link>
