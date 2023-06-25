@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import apiDeputados from "../../../services/apiDeputados";
 import Pagina from "../../../components/Pagina";
-import { Card, Col, Nav, Row, Table } from "react-bootstrap";
+import { Button, Card, Col, Nav, Row, Table } from "react-bootstrap";
 import DonutChart from "../../../components/DonutChart";
 import MeuCard from "../../../components/MeuCard";
 import axios from "axios";
@@ -38,7 +38,7 @@ const index = ({ deputado, gastos }) => {
 
   function getAll() {
     axios
-      .get("/api/forum")
+      .get(`/api/forum/`)
       .then((res) => {
         setForum(res.data);
       })
@@ -148,7 +148,11 @@ const index = ({ deputado, gastos }) => {
           </Card>
         </Col>
       </Row>
-      <Row>
+      <Row className="my-5">
+        <h2 className="text-white text-center">Fórum</h2>
+        <Button className="btn btn-primary" href="/forum/novo">
+          Novo
+        </Button>
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
@@ -158,9 +162,9 @@ const index = ({ deputado, gastos }) => {
           </thead>
           <tbody>
             {forum.map((item) => (
-              <tr>
-                <td>{item.user}</td>
-                <td>{item.message}</td>
+              <tr key={item.id}>
+                <td>{item.usuario}</td>
+                <td>{item.menssagem}</td>
               </tr>
             ))}
           </tbody>
