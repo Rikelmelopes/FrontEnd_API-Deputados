@@ -47,6 +47,68 @@ const index = ({ deputado, gastos }) => {
       });
   }
 
+  const dataAtual = new Date();
+  const anoAtual = dataAtual.getFullYear();
+
+  function calculo(data) {
+    let valorAnoAtual = 0;
+    let valorAnoPassado = 0;
+
+    gastos.map((item) => {
+      if (item.ano == data) {
+        valorAnoAtual += item.valorLiquido;
+      }
+      if (item.ano == data - 1) {
+        valorAnoPassado += item.valorLiquido;
+      }
+    });
+    let totalGasto = valorAnoAtual + valorAnoPassado;
+    return (
+      <Row
+        className="my-3"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <DonutChart
+          data={{
+            labels: [`Ano ${anoAtual}`, `Ano ${anoAtual - 1}`],
+            datasets: [
+              {
+                data: [
+                  // 1, 2, 3,
+                  valorAnoAtual,
+                  valorAnoPassado,
+                ],
+                backgroundColor: ["#004A2F", "#27AC0F"],
+                hoverBackgroundColor: ["#004A2F", "#27AC0F"],
+                cutout: "50%",
+              },
+            ],
+          }}
+        />
+        <div
+          className="text-center"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <strong style={{ fontSize: 35 }}>Gastos totais:</strong>
+          <br />
+          <div style={{ fontSize: 20 }}>
+            R$
+            {totalGasto.toFixed(2).replace(".", ",")}
+          </div>
+        </div>
+      </Row>
+    );
+  }
+
   return (
     <Pagina titulo={deputado.ultimoStatus.nome}>
       <Row className="my-3">
@@ -90,25 +152,33 @@ const index = ({ deputado, gastos }) => {
             className="my-3"
           >
             <Nav.Item>
-              <Nav.Link href={`/deputados/${deputado.id}`}>Despesas</Nav.Link>
+              <Nav.Link
+                href={`/deputados/${deputado.id}`}
+                style={{ backgroundColor: "#004A2F" }}
+              >
+                Despesas
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href={`/deputados/${deputado.id}/contatos`}>
+              <Nav.Link
+                href={`/deputados/${deputado.id}/contatos`}
+                style={{ color: "#27AC0F" }}
+              >
                 Contatos
               </Nav.Link>
             </Nav.Item>
           </Nav>
           <Card>
             <Card.Body>
-              <Row>
+              {/* <Row>
                 {gastos.map((item) => (
                   <Col key={item.id} className="my-3">
                     <MeuCard>
                       <div style={{ padding: 10 }}>
                         <Col style={{ marginBottom: 10 }}>
                           <Row>
-                            <Col>
-                              <DonutChart
+                <Col>
+                  <DonutChart
                                 data={{
                                   labels: ["Documento", "Glosa"],
                                   datasets: [
@@ -126,24 +196,23 @@ const index = ({ deputado, gastos }) => {
                                     },
                                   ],
                                 }}
-                              />
-                            </Col>
-                            <Col>
-                              <strong style={{ fontSize: 30 }}>
-                                {item.ano}
-                              </strong>
-                              <br /> {getMonthName(item.mes)}
-                              <br /> R$
-                              {item.valorLiquido.toFixed(2).replace(".", ",")}
-                            </Col>
-                          </Row>
+                              /> */}
+              {calculo(anoAtual)}
+              {/* </Col>
+                <Col>
+                  <strong style={{ fontSize: 30 }}>{item.ano}</strong>
+                  <br /> {getMonthName(item.mes)}
+                  <br /> R$
+                  {item.valorLiquido.toFixed(2).replace(".", ",")}
+                </Col>
+                </Row>
                         </Col>
                         <Col>{item.tipoDespesa}</Col>
                       </div>
                     </MeuCard>
                   </Col>
                 ))}
-              </Row>
+              </Row> */}
             </Card.Body>
           </Card>
         </Col>
