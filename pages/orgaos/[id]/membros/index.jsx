@@ -17,10 +17,20 @@ const index = ({ orgao, orgaos }) => {
             className="my-3"
           >
             <Nav.Item>
-              <Nav.Link href={`/orgaos/${orgaos.id}/`}>Informações</Nav.Link>
+              <Nav.Link
+                href={`/orgaos/${orgaos.id}/`}
+                style={{ color: "#27AC0F" }}
+              >
+                Informações
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href={`/orgaos/${orgaos.id}/membros`}>Membros</Nav.Link>
+              <Nav.Link
+                href={`/orgaos/${orgaos.id}/membros`}
+                style={{ backgroundColor: "#004A2F" }}
+              >
+                Membros
+              </Nav.Link>
             </Nav.Item>
           </Nav>
           <h3>Membros</h3>
