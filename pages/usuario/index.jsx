@@ -3,8 +3,9 @@ import MeuCard from "../../components/MeuCard";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row, Table } from "react-bootstrap";
 import { BsPlusCircle } from "react-icons/bs";
+import { BsFillArrowUpRightSquareFill } from "react-icons/bs";
 
 const index = () => {
   const [users, setUsers] = useState([]);
@@ -30,7 +31,41 @@ const index = () => {
         Novo
         <BsPlusCircle className="ms-1" />
       </Link>
-      <Row>
+      <Table variant="dark" striped bordered hover className="my-3">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Imagem</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((item) => (
+            <tr key={item.id}>
+              <td
+                className="text-center"
+                style={{ width: 70, verticalAlign: "middle" }}
+              >
+                <Link href={`usuario/${item.id}`}>
+                  <BsFillArrowUpRightSquareFill color="#17583B" />
+                </Link>
+              </td>
+              <td style={{ width: 100 }}>
+                <img
+                  src={item.foto}
+                  style={{ height: 80, width: 80, borderRadius: "50%" }}
+                />
+              </td>
+              <td style={{ verticalAlign: "middle" }}>{item.nome}</td>
+              <td style={{ width: 200, verticalAlign: "middle" }}>
+                {item.telefone}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      {/* <Row>
         {users.map((item) => (
           <Col key={item.id}>
             <Link
@@ -50,7 +85,7 @@ const index = () => {
             </Link>
           </Col>
         ))}
-      </Row>
+      </Row> */}
     </Pagina>
   );
 };

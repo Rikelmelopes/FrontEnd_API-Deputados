@@ -54,9 +54,10 @@ const index = () => {
             <Card.Img src={usuario.foto} />
           </Card>
         </Col>
-        <Col className="text-white" style={{ border: "1px solid white" }}>
-          <h3>Informações:</h3>
-
+        <Col
+          className="text-white rounded"
+          style={{ border: "1px solid white", padding: 16 }}
+        >
           <Row>
             <Col>
               <p>

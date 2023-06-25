@@ -26,7 +26,7 @@ const Cabecalho = () => {
               <Nav.Link href="/deputados">Deputados</Nav.Link>
               <Nav.Link href="/partidos">Partidos</Nav.Link>
               <Nav.Link href="/orgaos">Órgãos</Nav.Link>
-              <Nav.Link href="/usuarios">Usuários</Nav.Link>
+              <Nav.Link href="/usuario">Usuários</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
