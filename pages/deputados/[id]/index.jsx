@@ -38,7 +38,7 @@ const index = ({ deputado, gastos }) => {
 
   function getAll() {
     axios
-      .get(`/api/forum/${deputado.id}`)
+      .get(`/api/forum/`)
       .then((res) => {
         setForum(res.data);
       })
@@ -231,10 +231,14 @@ const index = ({ deputado, gastos }) => {
           </thead>
           <tbody>
             {forum.map((item) => (
-              <tr key={item.id}>
-                <td>{item.usuario}</td>
-                <td>{item.menssagem}</td>
-              </tr>
+              <>
+                {item.deputado_id === item.deputado_id} ? (
+                <tr key={item.id}>
+                  <td>{item.usuario}</td>
+                  <td>{item.menssagem}</td>
+                </tr>
+                ): <></>
+              </>
             ))}
           </tbody>
         </Table>
