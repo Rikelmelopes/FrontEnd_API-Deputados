@@ -8,7 +8,7 @@ import MeuCard from "../../components/MeuCard";
 const Index = ({ deputados }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(18);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
 
   const filteredDeputados = deputados.filter((item) =>
     item.nome.toLowerCase().includes(searchTerm.toLowerCase())
@@ -116,7 +116,12 @@ const Index = ({ deputados }) => {
         </Card.Body>
       </Card>
       <br />
-      <div className="paginacao">{paginacao()}</div>
+      <div
+        className="paginacao"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        {paginacao()}
+      </div>
     </Pagina>
   );
 };
