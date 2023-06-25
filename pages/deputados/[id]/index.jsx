@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import apiDeputados from "../../../services/apiDeputados";
 import Pagina from "../../../components/Pagina";
 import { Card, Col, Nav, Row, Table } from "react-bootstrap";
 import DonutChart from "../../../components/DonutChart";
 import MeuCard from "../../../components/MeuCard";
+import axios from "axios";
 
 const index = ({ deputado, gastos }) => {
   function getMonthName(monthNumber) {
@@ -29,6 +30,23 @@ const index = ({ deputado, gastos }) => {
       return "";
     }
   }
+  const [forum, setForum] = useState([]);
+
+  useEffect(() => {
+    getAll();
+  }, []);
+
+  function getAll() {
+    axios
+      .get("/api/forum")
+      .then((res) => {
+        setForum(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <Pagina titulo={deputado.ultimoStatus.nome}>
       <Row className="my-3">
@@ -129,6 +147,24 @@ const index = ({ deputado, gastos }) => {
             </Card.Body>
           </Card>
         </Col>
+      </Row>
+      <Row>
+        <Table striped bordered hover variant="dark">
+          <thead>
+            <tr>
+              <th>Usuário</th>
+              <th>Mensagem</th>
+            </tr>
+          </thead>
+          <tbody>
+            {forum.map((item) => (
+              <tr>
+                <td>{item.user}</td>
+                <td>{item.message}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </Row>
     </Pagina>
   );

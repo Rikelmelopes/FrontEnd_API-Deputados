@@ -7,16 +7,22 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
+    "@hookform/resolvers": "^3.1.1",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "chart.js": "^4.3.0",
+    "firebase": "^9.23.0",
     "next": "latest",
     "react": "18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.45.0",
     "react-icons": "^4.8.0",
     "react-spinners": "^0.13.8",
-    "recharts": "^2.6.2"
+    "recharts": "^2.6.2",
+    "remask": "^1.2.2",
+    "uuid": "^9.0.0",
+    "yup": "^1.2.0"
   }
 }
