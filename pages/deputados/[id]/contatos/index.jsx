@@ -85,10 +85,18 @@ const index = ({ deputado }) => {
             className="my-3"
           >
             <Nav.Item>
-              <Nav.Link href={`/deputados/${deputado.id}`}>Despesas</Nav.Link>
+              <Nav.Link
+                href={`/deputados/${deputado.id}`}
+                style={{ color: "#27AC0F" }}
+              >
+                Despesas
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href={`/deputados/${deputado.id}/contatos`}>
+              <Nav.Link
+                href={`/deputados/${deputado.id}/contatos`}
+                style={{ backgroundColor: "#004A2F" }}
+              >
                 Contatos
               </Nav.Link>
             </Nav.Item>

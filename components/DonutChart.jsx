@@ -4,7 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 
 const DonutChart = (props) => {
   return (
-    <div style={{ height: 300, width: 300 }}>
+    <div style={{ height: 600, width: 600 }}>
       <Doughnut data={props.data} />
     </div>
   );

@@ -62,26 +62,49 @@ const index = ({ deputado, gastos }) => {
         valorAnoPassado += item.valorLiquido;
       }
     });
+    let totalGasto = valorAnoAtual + valorAnoPassado;
     return (
-      <Row>
-        <Col>
-          <DonutChart
-            data={{
-              labels: [`Ano ${anoAtual}`, `Ano ${anoAtual - 1}`],
-              datasets: [
-                {
-                  data: [
-                    // 1, 2, 3,
-                    valorAnoAtual,
-                    valorAnoPassado,
-                  ],
-                  backgroundColor: ["#FF6384", "#36A2EB"],
-                  hoverBackgroundColor: ["#FF6384", "#36A2EB"],
-                },
-              ],
-            }}
-          />
-        </Col>
+      <Row
+        className="my-3"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <DonutChart
+          data={{
+            labels: [`Ano ${anoAtual}`, `Ano ${anoAtual - 1}`],
+            datasets: [
+              {
+                data: [
+                  // 1, 2, 3,
+                  valorAnoAtual,
+                  valorAnoPassado,
+                ],
+                backgroundColor: ["#004A2F", "#27AC0F"],
+                hoverBackgroundColor: ["#004A2F", "#27AC0F"],
+                cutout: "50%",
+              },
+            ],
+          }}
+        />
+        <div
+          className="text-center"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <strong style={{ fontSize: 35 }}>Gastos totais:</strong>
+          <br />
+          <div style={{ fontSize: 20 }}>
+            R$
+            {totalGasto.toFixed(2).replace(".", ",")}
+          </div>
+        </div>
       </Row>
     );
   }
@@ -129,10 +152,18 @@ const index = ({ deputado, gastos }) => {
             className="my-3"
           >
             <Nav.Item>
-              <Nav.Link href={`/deputados/${deputado.id}`}>Despesas</Nav.Link>
+              <Nav.Link
+                href={`/deputados/${deputado.id}`}
+                style={{ backgroundColor: "#004A2F" }}
+              >
+                Despesas
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href={`/deputados/${deputado.id}/contatos`}>
+              <Nav.Link
+                href={`/deputados/${deputado.id}/contatos`}
+                style={{ color: "#27AC0F" }}
+              >
                 Contatos
               </Nav.Link>
             </Nav.Item>
