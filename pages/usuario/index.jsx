@@ -54,7 +54,12 @@ const index = () => {
               <td style={{ width: 100 }}>
                 <img
                   src={item.foto}
-                  style={{ height: 80, width: 80, borderRadius: "50%" }}
+                  style={{
+                    height: 80,
+                    width: 80,
+                    objectFit: "cover",
+                    borderRadius: "50%",
+                  }}
                 />
               </td>
               <td style={{ verticalAlign: "middle" }}>{item.nome}</td>
