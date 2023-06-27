@@ -55,8 +55,8 @@ const index = ({ deputados }) => {
           exluido para sempre!
         </Modal.Body>
         <Modal.Footer>
-          <Button style={{ backgroundColor: "#0D8CFF" }} onClick={handleClose}>
-            Sair
+          <Button style={{ backgroundColor: "#004A2F" }} onClick={handleClose}>
+            Cancelar
           </Button>
           <Button
             variant="danger"
@@ -137,7 +137,7 @@ const index = ({ deputados }) => {
           <div className="text-center">
             <Link
               className="btn"
-              style={{ backgroundColor: "#0D8CFF" }}
+              style={{ backgroundColor: "#004A2F", color: "white" }}
               href={`${usuario.id}/form`}
             >
               Editar
@@ -171,7 +171,12 @@ const index = ({ deputados }) => {
                   </td>
                   <td>{item.menssagem}</td>
                   <td>
-                    <Button onClick={() => excluir2(item.id)}>Excluir</Button>
+                    <Button
+                      className="btn-danger"
+                      onClick={() => excluir2(item.id)}
+                    >
+                      Excluir
+                    </Button>
                   </td>
                 </tr>
               )
