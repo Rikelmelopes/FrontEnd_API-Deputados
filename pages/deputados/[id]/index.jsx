@@ -187,18 +187,14 @@ const index = ({ deputado, gastos }) => {
             </tr>
           </thead>
           <tbody>
-            {forum.map((item) =>
-              item.deputadoId == deputado.id ? (
-                <tr key={item.id}>
-                  <td>{item.usuario}</td>
-                  <td>{item.menssagem}</td>
-                  <td>
-                    <Button onClick={() => excluir(item.id)}>Excluir</Button>
-                  </td>
-                </tr>
-              ) : (
-                <></>
-              )
+            {forum.map(
+              (item) =>
+                item.deputadoId == deputado.id && (
+                  <tr key={item.id}>
+                    <td>{item.usuario}</td>
+                    <td>{item.menssagem}</td>
+                  </tr>
+                )
             )}
           </tbody>
         </Table>
