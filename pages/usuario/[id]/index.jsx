@@ -26,6 +26,13 @@ const index = ({ deputados }) => {
     setShow(true);
   }
 
+  function excluir2(id) {
+    if (confirm("Você tem certeza disso?")) {
+      axios.delete(`/api/forum/${id}`);
+      getAll();
+    }
+  }
+
   function getAll() {
     axios
       .get("/api/forum")
@@ -55,7 +62,7 @@ const index = ({ deputados }) => {
             variant="danger"
             onClick={() => {
               axios.delete(`/api/usuarios/${usuario.id}`);
-              push("/usuarios");
+              push("/usuario");
             }}
           >
             Excluir
@@ -164,7 +171,7 @@ const index = ({ deputados }) => {
                   </td>
                   <td>{item.menssagem}</td>
                   <td>
-                    <Button onClick={() => excluir(item.id)}>Excluir</Button>
+                    <Button onClick={() => excluir2(item.id)}>Excluir</Button>
                   </td>
                 </tr>
               )
