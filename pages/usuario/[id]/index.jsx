@@ -2,10 +2,11 @@ import Pagina from "../../../components/Pagina";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import apiDeputados from "../../../services/apiDeputados";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Modal, Row, Table } from "react-bootstrap";
 
-const index = () => {
+const index = ({ deputados }) => {
   const { push, query } = useRouter();
   const [usuario, setUsuario] = useState([]);
   const [forum, setForum] = useState([]);
@@ -141,26 +142,32 @@ const index = () => {
           </div>
         </Col>
       </Row>
-      <Table striped bordered hover variant="dark">
+      <Table striped bordered hover variant="dark" style={{ marginTop: 20 }}>
         <thead>
           <tr>
-            <th>Usuário</th>
+            <th>Deputado</th>
             <th>Mensagem</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          {forum.map((item) =>
-            item.usuario == usuario.nome ? (
-              <tr key={item.id}>
-                <td>{item.usuario}</td>
-                <td>{item.menssagem}</td>
-                <td>
-                  <Button onClick={() => excluir(item.id)}>Excluir</Button>
-                </td>
-              </tr>
-            ) : (
-              <></>
-            )
+          {forum.map(
+            (item) =>
+              item.usuario == usuario.nome && (
+                <tr key={item.id}>
+                  <td style={{ width: 180 }}>
+                    {deputados.map((item2) => {
+                      return (
+                        item.deputadoId == item2.id && <div>{item2.nome}</div>
+                      );
+                    })}
+                  </td>
+                  <td>{item.menssagem}</td>
+                  <td>
+                    <Button onClick={() => excluir(item.id)}>Excluir</Button>
+                  </td>
+                </tr>
+              )
           )}
         </tbody>
       </Table>
@@ -169,3 +176,11 @@ const index = () => {
 };
 
 export default index;
+
+export async function getServerSideProps(context) {
+  const resultado = await apiDeputados.get(`/deputados`);
+  const deputados = await resultado.data.dados;
+  return {
+    props: { deputados },
+  };
+}
