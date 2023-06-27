@@ -169,51 +169,7 @@ const index = ({ deputado, gastos }) => {
             </Nav.Item>
           </Nav>
           <Card>
-            <Card.Body>
-              {/* <Row>
-                {gastos.map((item) => (
-                  <Col key={item.id} className="my-3">
-                    <MeuCard>
-                      <div style={{ padding: 10 }}>
-                        <Col style={{ marginBottom: 10 }}>
-                          <Row>
-                <Col>
-                  <DonutChart
-                                data={{
-                                  labels: ["Documento", "Glosa"],
-                                  datasets: [
-                                    {
-                                      data: [
-                                        // 1, 2, 3,
-                                        parseInt(item.valorDocumento),
-                                        parseInt(item.valorGlosa),
-                                      ],
-                                      backgroundColor: ["#FF6384", "#36A2EB"],
-                                      hoverBackgroundColor: [
-                                        "#FF6384",
-                                        "#36A2EB",
-                                      ],
-                                    },
-                                  ],
-                                }}
-                              /> */}
-              {calculo(anoAtual)}
-              {/* </Col>
-                <Col>
-                  <strong style={{ fontSize: 30 }}>{item.ano}</strong>
-                  <br /> {getMonthName(item.mes)}
-                  <br /> R$
-                  {item.valorLiquido.toFixed(2).replace(".", ",")}
-                </Col>
-                </Row>
-                        </Col>
-                        <Col>{item.tipoDespesa}</Col>
-                      </div>
-                    </MeuCard>
-                  </Col>
-                ))}
-              </Row> */}
-            </Card.Body>
+            <Card.Body>{calculo(anoAtual)}</Card.Body>
           </Card>
         </Col>
       </Row>
@@ -226,12 +182,19 @@ const index = ({ deputado, gastos }) => {
             </tr>
           </thead>
           <tbody>
-            {forum.map((item) => (
-              <tr>
-                <td>{item.user}</td>
-                <td>{item.message}</td>
-              </tr>
-            ))}
+            {forum.map((item) =>
+              item.deputadoId == deputado.id ? (
+                <tr key={item.id}>
+                  <td>{item.usuario}</td>
+                  <td>{item.menssagem}</td>
+                  <td>
+                    <Button onClick={() => excluir(item.id)}>Excluir</Button>
+                  </td>
+                </tr>
+              ) : (
+                <></>
+              )
+            )}
           </tbody>
         </Table>
       </Row>
