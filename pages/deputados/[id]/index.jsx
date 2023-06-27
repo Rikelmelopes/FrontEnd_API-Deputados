@@ -3,9 +3,9 @@ import apiDeputados from "../../../services/apiDeputados";
 import Pagina from "../../../components/Pagina";
 import { Button, Card, Col, Nav, Row, Table } from "react-bootstrap";
 import DonutChart from "../../../components/DonutChart";
-import MeuCard from "../../../components/MeuCard";
 import axios from "axios";
 import Link from "next/link";
+import { FaPlus } from "react-icons/fa";
 
 const index = ({ deputado, gastos }) => {
   function getMonthName(monthNumber) {
@@ -176,8 +176,12 @@ const index = ({ deputado, gastos }) => {
       </Row>
       <Row>
         <h2 className="text-center text-white">Fórum</h2>
-        <Link className="btn btn-success" href={`/forum/${deputado.id}`}>
-          Novo
+        <Link
+          className="btn btn-success"
+          href={`/forum/${deputado.id}`}
+          style={{ width: 100, marginBottom: 20 }}
+        >
+          Novo <FaPlus size={15} />
         </Link>
         <Table striped bordered hover variant="dark">
           <thead>
