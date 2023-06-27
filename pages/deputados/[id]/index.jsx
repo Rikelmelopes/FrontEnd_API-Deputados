@@ -5,6 +5,7 @@ import { Button, Card, Col, Nav, Row, Table } from "react-bootstrap";
 import DonutChart from "../../../components/DonutChart";
 import MeuCard from "../../../components/MeuCard";
 import axios from "axios";
+import Link from "next/link";
 
 const index = ({ deputado, gastos }) => {
   function getMonthName(monthNumber) {
@@ -174,6 +175,10 @@ const index = ({ deputado, gastos }) => {
         </Col>
       </Row>
       <Row>
+        <h2 className="text-center text-white">Fórum</h2>
+        <Link className="btn btn-success" href={`/forum/${deputado.id}`}>
+          Novo
+        </Link>
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
