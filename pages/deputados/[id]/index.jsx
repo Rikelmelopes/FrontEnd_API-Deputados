@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import apiDeputados from "../../../services/apiDeputados";
 import Pagina from "../../../components/Pagina";
-import { Card, Col, Nav, Row, Table } from "react-bootstrap";
+import { Button, Card, Col, Nav, Row, Table } from "react-bootstrap";
 import DonutChart from "../../../components/DonutChart";
 import MeuCard from "../../../components/MeuCard";
 import axios from "axios";
