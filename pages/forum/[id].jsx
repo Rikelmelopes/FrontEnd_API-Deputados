@@ -3,11 +3,7 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import Pagina from "../../components/Pagina";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import {
-  BsArrowLeftCircleFill,
-  BsCheck2,
-  BsFillArrowDownRightSquareFill,
-} from "react-icons/bs";
+import { BsArrowLeftCircleFill, BsCheck2 } from "react-icons/bs";
 import Link from "next/link";
 import axios from "axios";
 import apiDeputados from "../../services/apiDeputados";
@@ -50,6 +46,15 @@ const novo = ({ deputado }) => {
           </Form.Select>
         </Form.Group>
 
+        <Form.Group controlId="deputado_id" className="mb-3">
+          <Form.Label>Deputado</Form.Label>
+          <Form.Control
+            type="text"
+            value={deputado.id}
+            {...register("deputadoId")}
+          />
+        </Form.Group>
+
         <Form.Group className="mb-3">
           <Form.Label>Menssagem:</Form.Label>
           <Form.Control
@@ -66,7 +71,7 @@ const novo = ({ deputado }) => {
             Salvar
           </Button>
           <Link
-            href={`/deputados${deputado.id}`}
+            href={`/deputados/${deputado.id}`}
             className="ms-2 btn btn-danger"
           >
             <BsArrowLeftCircleFill className="me-1" />
